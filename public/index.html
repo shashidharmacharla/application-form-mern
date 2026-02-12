@@ -1,59 +1,155 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Application Form</title>
+    <title>Application Portal</title>
     <style>
         body {
-            font-family: Arial;
-            background-color: #f2f2f2;
-            display: flex;
-            justify-content: center;
-            padding-top: 50px;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f9;
+            scroll-behavior: smooth;
         }
+
+        /* 🔥 Navbar */
+        .navbar {
+            background-color: #2c3e50;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+            position: sticky;
+            top: 0;
+        }
+
+        .navbar h2 {
+            margin: 0;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: bold;
+        }
+
+        .nav-links a:hover {
+            color: #1abc9c;
+        }
+
+        /* 🔥 Sections */
+        section {
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .home-section {
+            background-color: #ecf0f1;
+        }
+
+        .about-section {
+            background-color: white;
+        }
+
+        .form-section {
+            background-color: #f4f6f9;
+        }
+
+        /* 🔥 Form */
         .form-container {
             background: white;
             padding: 30px;
             border-radius: 10px;
-            width: 350px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: 400px;
+            margin: auto;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
         }
+
         input, select {
             width: 100%;
             padding: 10px;
             margin: 8px 0;
         }
+
         button {
             width: 100%;
             padding: 10px;
-            background-color: #007bff;
+            background-color: #1abc9c;
             color: white;
             border: none;
             cursor: pointer;
+            font-size: 16px;
         }
+
         button:hover {
-            background-color: #0056b3;
+            background-color: #16a085;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: auto;
+            line-height: 1.6;
         }
     </style>
 </head>
 <body>
 
-<div class="form-container">
-    <h2>Application Form</h2>
-    <form action="/submit" method="POST">
-        <input type="text" name="name" placeholder="Full Name" required>
-        <input type="email" name="email" placeholder="Email" required>
-        <input type="text" name="phone" placeholder="Phone Number" required>
-
-        <select name="course" required>
-            <option value="">Select Course</option>
-            <option value="Web Development">Web Development</option>
-            <option value="Data Science">Data Science</option>
-            <option value="AI & ML">AI & ML</option>
-        </select>
-
-        <button type="submit">Submit Application</button>
-    </form>
+<!-- 🔥 Navbar -->
+<div class="navbar">
+    <h2>Application Portal</h2>
+    <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#about">About Us</a>
+        <a href="#apply">Apply</a>
+        <a href="/applications">View Applications</a>
+    </div>
 </div>
+
+<!-- 🔥 Home Section -->
+<section class="home-section" id="home">
+    <h1>Welcome to Our Application Portal</h1>
+    <p>Apply for courses easily and manage your applications online.</p>
+</section>
+
+<!-- 🔥 About Section -->
+<section class="about-section" id="about">
+    <h2>About Us</h2>
+    <div class="about-content">
+        <p>
+            We are a professional training institute focused on providing high-quality
+            education in Web Development, Data Science, and Artificial Intelligence.
+        </p>
+        <p>
+            Our mission is to empower students with practical skills and industry-ready
+            knowledge to build successful careers in technology.
+        </p>
+        <p>
+            With experienced mentors and real-time projects, we ensure every student
+            gains hands-on experience.
+        </p>
+    </div>
+</section>
+
+<!-- 🔥 Application Form Section -->
+<section class="form-section" id="apply">
+    <h2>Application Form</h2>
+    <div class="form-container">
+        <form action="/submit" method="POST">
+            <input type="text" name="name" placeholder="Full Name" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="text" name="phone" placeholder="Phone Number" required>
+
+            <select name="course" required>
+                <option value="">Select Course</option>
+                <option value="Web Development">Web Development</option>
+                <option value="Data Science">Data Science</option>
+                <option value="AI & ML">AI & ML</option>
+            </select>
+
+            <button type="submit">Submit Application</button>
+        </form>
+    </div>
+</section>
 
 </body>
 </html>
