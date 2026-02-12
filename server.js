@@ -46,6 +46,38 @@ app.post('/submit', async (req, res) => {
     }
 });
 
+// View All Applications
+app.get('/applications', async (req, res) => {
+    const applications = await Application.find();
+
+    let html = `
+        <h2 style="text-align:center;">All Applications</h2>
+        <table border="1" cellpadding="10" style="margin:auto; border-collapse:collapse;">
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Course</th>
+        </tr>
+    `;
+
+    applications.forEach(app => {
+        html += `
+            <tr>
+                <td>${app.name}</td>
+                <td>${app.email}</td>
+                <td>${app.phone}</td>
+                <td>${app.course}</td>
+            </tr>
+        `;
+    });
+
+    html += `</table><br><div style="text-align:center;"><a href="/">Go Back</a></div>`;
+
+    res.send(html);
+});
+
+
 app.listen(PORT, () => {
     console.log(`Server running at http://localhost:${PORT}`);
 });
